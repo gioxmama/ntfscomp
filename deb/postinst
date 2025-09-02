@@ -3,6 +3,8 @@
 set -e
 
 # Make the script executable
-chmod +x /usr/bin/ntfscomp
+if [ -f /usr/bin/ntfscomp ]; then
+    chmod +x /usr/bin/ntfscomp
+fi
 
 # Optionally, you can add any additional setup tasks here.
