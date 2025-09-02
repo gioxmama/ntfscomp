@@ -29,5 +29,5 @@ chmod 0755 %{buildroot}/usr/bin/ntfscomp
 echo "ntfscomp installed. You can run it with the command: ntfscomp"
 
 %changelog
-* Tue Sep 02 2025 Your Name <your@email.com> - 1.0.0-1
+* Tue Sep 02 2025 gioxmama <114627085+gioxmama@users.noreply.github.com> - 1.0.0-1
 - Initial

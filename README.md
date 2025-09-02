@@ -72,4 +72,8 @@ MIT License
 
 Pull requests and issues are welcome!
 
-## 💡 Author
+## 💡 Author/s
+
+Made with ❤ by:
+
+- gioxmama

@@ -4,7 +4,8 @@ Section: utils
 Priority: optional
 Architecture: amd64
 Depends: bash
-Maintainer: gioxmama <>
+Maintainer: gioxmama <114627085+gioxmama@users.noreply.github.com>
 Description: A script for renaming files with sanitized names.
  This package installs the ntfscomp script to /usr/bin, making it executable
  and removing the .sh extension for traditional command usage.
+ 
