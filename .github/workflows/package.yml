@@ -2,8 +2,8 @@ name: Build and Release .deb and .rpm Packages
 
 on:
   push:
-    paths:
-      - 'scripts/ntfscomp.sh'
+    tags:
+      - 'v*'
   workflow_dispatch:
 
 jobs:
