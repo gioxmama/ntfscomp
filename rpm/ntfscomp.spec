@@ -18,15 +18,14 @@ A command-line utility that recursively renames files and folders to be NTFS-com
 # No build steps needed for bash scripts
 
 %install
-mkdir -p buildroot/ntfscomp-1.0.0
-cp scripts/ntfscomp.sh buildroot/ntfscomp-1.0.0/
-tar czf rpmbuild/SOURCES/ntfscomp-1.0.0.tar.gz -C buildroot ntfscomp-1.0.0
+mkdir -p %{buildroot}/usr/bin
+cp ntfscomp.sh %{buildroot}/usr/bin/ntfscomp
+chmod 0755 %{buildroot}/usr/bin/ntfscomp
 
 %files
 /usr/bin/ntfscomp
 
 %post
-chmod +x /usr/bin/ntfscomp
 echo "ntfscomp installed. You can run it with the command: ntfscomp"
 
 %changelog
