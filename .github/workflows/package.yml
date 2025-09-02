@@ -45,7 +45,9 @@ jobs:
       - name: Build .rpm package
         run: |
           mkdir -p rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
-          tar czf rpmbuild/SOURCES/ntfscomp-${{ steps.meta.outputs.version }}.tar.gz -C scripts ntfscomp.sh
+          mkdir -p buildroot/ntfscomp-${{ steps.meta.outputs.version }}
+          cp scripts/ntfscomp.sh buildroot/ntfscomp-${{ steps.meta.outputs.version }}/
+          tar czf rpmbuild/SOURCES/ntfscomp-${{ steps.meta.outputs.version }}.tar.gz -C buildroot ntfscomp-${{ steps.meta.outputs.version }}
           cp rpm/spec rpmbuild/SPECS/ntfscomp.spec
           rpmbuild --define "_topdir $(pwd)/rpmbuild" -bb rpmbuild/SPECS/ntfscomp.spec
 
