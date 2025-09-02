@@ -26,6 +26,7 @@ tar czf rpmbuild/SOURCES/ntfscomp-1.0.0.tar.gz -C buildroot ntfscomp-1.0.0
 /usr/bin/ntfscomp
 
 %post
+chmod +x /usr/bin/ntfscomp
 echo "ntfscomp installed. You can run it with the command: ntfscomp"
 
 %changelog

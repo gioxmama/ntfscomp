@@ -48,7 +48,7 @@ jobs:
           mkdir -p buildroot/ntfscomp-${{ steps.meta.outputs.version }}
           cp scripts/ntfscomp.sh buildroot/ntfscomp-${{ steps.meta.outputs.version }}/
           tar czf rpmbuild/SOURCES/ntfscomp-${{ steps.meta.outputs.version }}.tar.gz -C buildroot ntfscomp-${{ steps.meta.outputs.version }}
-          cp rpm/spec rpmbuild/SPECS/ntfscomp.spec
+          cp rpm/ntfscomp.spec rpmbuild/SPECS/ntfscomp.spec
           rpmbuild --define "_topdir $(pwd)/rpmbuild" -bb rpmbuild/SPECS/ntfscomp.spec
 
       - name: Create Release
