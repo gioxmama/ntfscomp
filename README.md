@@ -26,14 +26,6 @@ sudo dpkg -i ntfscomp_<version>.deb
 sudo rpm -i ntfscomp-<version>.rpm
 ```
 
-Or build from source:
-
-```sh
-git clone https://github.com/youruser/ntfscomp.git
-cd ntfscomp/scripts
-chmod +x ntfscomp.sh
-```
-
 ## 🛠 Usage
 
 ```sh

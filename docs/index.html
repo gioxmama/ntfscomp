@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ntfscomp - NTFS Filename Sanitizer</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <header>
+        <h1>ntfscomp</h1>
+        <p>A command-line utility for NTFS-compliant file and folder renaming</p>
+    </header>
+    <main class="container">
+        <section>
+            <h2>About ntfscomp</h2>
+            <p>
+                <strong>ntfscomp</strong> is a Bash script that recursively renames files and folders to ensure compatibility with Windows NTFS. It sanitizes names by replacing forbidden characters, trimming trailing spaces and dots, and optionally truncating names to a specified maximum length.
+            </p>
+        </section>
+        <section>
+            <h2>Features</h2>
+            <ul>
+                <li>Recursively scans folders and subdirectories</li>
+                <li>Replaces forbidden NTFS characters (<code>&lt; &gt; : " / \ | ? *</code>) with underscores</li>
+                <li>Trims trailing spaces and dots</li>
+                <li>Dry-run mode for safe simulation</li>
+                <li>Set maximum name length (default: 255)</li>
+                <li>Optional logging of all operations</li>
+                <li>Packaged as <code>.deb</code> and <code>.rpm</code> for easy installation</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Usage Example</h2>
+            <pre><code>ntfscomp --folder /path/to/target --dry-run --log</code></pre>
+            <p>
+                See the <a href="download.html">Download Page</a> for installation instructions and package downloads.
+            </p>
+        </section>
+        <section>
+            <h2>License &amp; Contributing</h2>
+            <p>
+                MIT License<br>
+                Pull requests and issues are welcome!
+            </p>
+        </section>
+        <section>
+            <h2>Author</h2>
+            <p>Made with ❤ by gioxmama</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 ntfscomp. All rights reserved.</p>
+    </footer>
+</body>
+</html>
