@@ -1,0 +1,11 @@
+#!/bin/bash
+
+set -e
+
+# Create a symlink to the script in /usr/bin without the .sh extension
+ln -s /usr/bin/ntfscomp.sh /usr/bin/ntfscomp
+
+# Make the script executable
+chmod +x /usr/bin/ntfscomp
+
+# Optionally, you can add any additional setup tasks here.

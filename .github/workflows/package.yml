@@ -1,0 +1,58 @@
+name: Build and Release .deb and .rpm Packages
+
+on:
+  push:
+    paths:
+      - 'scripts/ntfscomp.sh'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Get version from deb/control
+        id: meta
+        run: |
+          VERSION=$(grep '^Version:' deb/control | awk '{print $2}')
+          echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+      - name: Prepare scripts for packaging
+        run: |
+          mkdir -p pkg/usr/bin
+          cp scripts/ntfscomp.sh pkg/usr/bin/ntfscomp
+          chmod +x pkg/usr/bin/ntfscomp
+
+      - name: Prepare DEBIAN control files
+        run: |
+          mkdir -p pkg/DEBIAN
+          cp deb/control pkg/DEBIAN/control
+          if [ -f deb/postinst ]; then
+            cp deb/postinst pkg/DEBIAN/postinst
+            chmod +x pkg/DEBIAN/postinst
+          fi
+
+      - name: Build .deb package
+        run: |
+          dpkg-deb --build pkg "ntfscomp_${{ steps.meta.outputs.version }}.deb"
+
+      - name: Install rpm tools
+        run: sudo apt-get update && sudo apt-get install -y rpm
+
+      - name: Build .rpm package
+        run: |
+          mkdir -p rpmbuild/{BUILD,RPMS,SOURCES,SPECS,SRPMS}
+          tar czf rpmbuild/SOURCES/ntfscomp-${{ steps.meta.outputs.version }}.tar.gz -C scripts ntfscomp.sh
+          cp rpm/spec rpmbuild/SPECS/ntfscomp.spec
+          rpmbuild --define "_topdir $(pwd)/rpmbuild" -bb rpmbuild/SPECS/ntfscomp.spec
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ntfscomp_${{ steps.meta.outputs.version }}.deb
+            rpmbuild/RPMS/noarch/ntfscomp-*.rpm
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

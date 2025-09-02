@@ -1,0 +1,23 @@
+{
+  "name": "ntfscomp",
+  "version": "1.0.0",
+  "description": "A script for renaming files in a specified directory with sanitized names.",
+  "main": "scripts/ntfscomp.sh",
+  "bin": {
+    "ntfscomp": "scripts/ntfscomp.sh"
+  },
+  "scripts": {
+    "build": "echo 'Building the package...'",
+    "test": "echo 'Running tests...'"
+  },
+  "keywords": [
+    "rename",
+    "files",
+    "bash",
+    "script"
+  ],
+  "author": "gioxmama",
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {}
+}

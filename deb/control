@@ -1,0 +1,10 @@
+Package: ntfscomp
+Version: 1.0.0
+Section: utils
+Priority: optional
+Architecture: amd64
+Depends: bash
+Maintainer: gioxmama <>
+Description: A script for renaming files with sanitized names.
+ This package installs the ntfscomp script to /usr/bin, making it executable
+ and removing the .sh extension for traditional command usage.
